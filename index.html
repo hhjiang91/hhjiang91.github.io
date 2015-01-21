@@ -1,119 +1,229 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=1000 height=700">
-<link rel="stylesheet" href="myweb.css" type="text/css" />
-<script src="myweb.js" language="javascript" type="text/javascript" charset="utf-8"></script>
-<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-<title>平凡人生的记录</title>
-</head>
+<!DOCTYPE html>
+<!--
+2015.1.16 by hhjiang
+this is my blog
+-->
+<html >
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>紫梦轩</title>
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <link rel="stylesheet" href="css/style.css" type="text/css" />
+        <link rel="icon" href="src/images/favicon.ico" type="image/x-icon" sizes="32x32"/>
+        <script type="text/javascript" src="./js/jquery-2.1.1.js"></script>
+    </head>
+
+    <body >
+        <img src="src/images/laba.jpg" id="audioDiv" onmouseOut="mouseOut()"/>
+        <div id="musicS"></div>
+        <div id="musicM"></div>
+        <div id="musicB"></div>
+        <div id="showInfo">Listen music</div>
+        <canvas id="canvas" >
+            当前浏览器不支持Canvas，请更换浏览器后再试
+        </canvas>
+        <canvas id="canvas0">
+            当前浏览器不支持Canvas，请更换浏览器后再试
+        </canvas>
+        <audio  controls="controls" id="musicAud" hidden>Your browser does not support the audio tag.</audio>
+        <script type="text/javascript">
+             const colors = ["rgba(222,219,246,0.5)", "rgba(240,245,175,0.5)", "rgba(247,193,82,0.5)", "rgba(237,165,242,0.25)", "rgba(219,152,245,0.75)", "rgba(147,198,240,0.5)", "rgba(233,221,215,0.30)", "rgba(187,175,215,0.5)", "rgba(229,238,247,0.5)", "rgba(229,238,234,0.5)"];
+            var ball = [];
+
+            WIDTH = document.documentElement.clientWidth;
+            HEIGHT = document.documentElement.clientHeight;
+            flagMusic = 0;
+            if (WIDTH * HEIGHT == 0)
+            {
+                WIDTH = document.body.clientWidth;
+                HEIGHT = document.body.clientWidth;
+            }
+            
+            function drawImg() {
+                //drew the image
+                var canvas0 = document.getElementById("canvas0");
+                canvas0.width = WIDTH;
+                canvas0.height = HEIGHT;
+                var context0 = canvas0.getContext("2d");
+                var img = new Image();
+                img.src = "src/images/flower.jpg";
+                imgX = WIDTH * 387 / 1399;
+                imgY = HEIGHT * 130 / 743;
+                imgW = WIDTH * 625 / 1399;
+                imgH = HEIGHT * 480 / 743;
+                if (img.complete) {
+                    context0.drawImage(img, imgX, imgY, imgW, imgH);
+                } else {
+                    img.onload = function () {
+                        context0.drawImage(img, imgX, imgY, imgW, imgH);
+                    };
+                    img.onerror = function () {
+                        window.alert('美女加载失败，请重试');
+                    };
+                }
+                ;
+            }
+
+            window.onload = function () {
+                drawImg();
+                var canvas = document.getElementById("canvas");
+                canvas.width = WIDTH;
+                canvas.height = HEIGHT;
+                for (var i = 0; i < 70; i++)
+                {
+                    var aBall = {
+                        xg: 0 * Math.random(),
+                        yg: 0 * Math.random(),
+                        vx: Math.floor(Math.random() * 5)+1,
+                        vy: Math.floor(Math.random() * 5)+1,
+                        color: colors[ Math.floor(Math.random() * colors.length)],
+                        r: Math.floor(Math.random() * 50 + 5),
+                        x: Math.floor(Math.random() * WIDTH)+160,
+                        y: Math.floor(Math.random() * HEIGHT)+225
+                    }
+                    if(aBall.x <= aBall.r){
+                        aBall.x = aBall.r+1+160;
+                    }else if(aBall.x >= WIDTH - aBall.r){
+                        aBall.x = WIDTH - aBall.r - 1;
+                    }
+                    if(aBall.y <= aBall.r){
+                        aBall.y = aBall.r + 1+240;
+                    }else if(aBall.y >= HEIGHT - aBall.r){
+                        aBall.y = HEIGHT - aBall.r - 1;
+                    }
+                    ball.push(aBall)
+                }
+                var context = canvas.getContext("2d");
+                setInterval(function () {
+                    render(context);
+                    update();
+                }, 50);
+            }
 
 
-<body>
-<div id="container">
-<div id="bg"><img src="img/house.jpg">
-</div></div>
 
-<div class="menu">
-<table align="left" cellspacing="7">
-  <tr >
-    <td><a href="#" id="1" onclick="changeDiv(this)">首页</a></td>
-    <td><a href="#" id="2" onclick="changeDiv(this)">活在当下</a></td>
-    <td><a href="#" id="3" onclick="changeDiv(this)">往昔拾贝</a></td>
-    <td><a href="#" id="4" onclick="changeDiv(this)">且行且珍惜</a></td>
-  </tr>
-</table>
-</div>
+            function update() {
+                for (var i = 0; i < 70; i++)
+                {
+                     if(ball[i].x<160+ ball[i].r && ball[i].y < ball[i].r + 240 )
+                    {
+                        ball[i].vx = -ball[i].vx;
+                        ball[i].vy = -ball[i].vy;
+                    }
+                    if (ball[i].x <=  ball[i].r || ball[i].x >= WIDTH-ball[i].r)
+                    {
+                        ball[i].vx = -ball[i].vx;
+                    }
+                    ball[i].x += ball[i].vx;
+                    ball[i].vx += ball[i].xg;
+                    if (ball[i].y <= ball[i].r || ball[i].y >= HEIGHT-ball[i].r)
+                    {
+                        ball[i].vy = -ball[i].vy;
+                    }
+                    ball[i].y += ball[i].vy;
+                    ball[i].vy += ball[i].yg;
+                   
+                }
+            }
 
-<div id="mainContent" style="display:block; width:520px">
-<span class="mainTitle1">&nbsp;自我介绍&nbsp;</span>
-<div class="mainContent1">
-<span class="divContent">
-大家好， 我是江慧慧，今年不是本命年，大家猜猜多大啦！：）我的家乡是著名药都亳州市利辛县，同样也是我崇拜的曹操的故乡（不好意思自豪感油然而生）。目前就读于中国科学技术大学研究生一年级， 
-本科毕业于合肥工业大学。主攻光通信的理论研究（水太深，目前还没研究透），副业就是这个啦。
-</span>
-</div>
-<span class="mainTitle2">&nbsp;兴趣爱好&nbsp;</span>
-<div class="mainContent2">
-<span class="divContent">
-惭愧啊， 由于爱好广泛，至今每一样精通的。。。<br />
-<strong>运动系列</strong>：我每周定时去健身房的哦， 跑步拉伸偶尔上一个形体课程， 曾经喜欢打羽毛球， 最喜欢莫过于散步了（经常夜游校园）。<br />
-<strong>文艺系列</strong>：喜欢种点花花草草，但是技术不精啊（养不活~）；目前在读《无处还乡》，很忧伤的赶脚；喜欢一个人旅游，一个人漫步在陌生的城市（很明显没找到我的那个根号3）；还有偶尔会画点画了（太丑求不喷）。<br />
-<strong>贤惠系列</strong>：虽然不是处女座，但是我还是挑的，所以经常收拾屋子打扫卫生滴，我喜欢做饭哦，我喜欢小动物啦（狗狗最爱，包括小宝宝）。<br />
-<strong>工作系列</strong>：目前对网页制作很感兴趣，还有养花（当初没去学园艺呢？），终极目标是一个有点小事业的家庭主妇。
-</span>
-</div>
-</div>
+            function render(cxt) {
+                cxt.clearRect(0, 0, cxt.canvas.width, cxt.canvas.height);
+                for (var i = 0; i < 70; i++)
+                {
+                    cxt.fillStyle = ball[i].color;
+                    cxt.beginPath();
+                    cxt.arc(ball[i].x, ball[i].y, ball[i].r, 0, 2 * Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
 
-<!--nowdays-->
-<div id="nowContent" style="display:none; width:520px">
-<span class="nowTitle1">&nbsp;凡人每天的工作&nbsp;</span>
-<div class="nowContent1">
-<span class="divContent">
-我每天的工作基本围绕着建设更好的祖国而奋斗着————为了不拖累祖国母亲，我一直在努力。 每天我会按时吃饭睡觉，偶尔会熬夜啦。早晨一般八点左右就开始一天的工作，看一个教学视频，然后偶尔会看一下《算法之道》，c++不会看了感觉也没什么用，下一步要学一个编程语言啦（虽然不想当码农）。接着估计就是看paper， 根本没思路，怎么科研。。。坑爹啊，能有什么特性让我研究（吐槽一下）。 然后漫无目的的过去了一天，回顾这一天根本什么事都没干，一天到晚的刷空间刷微博看手机。这就是平凡人的一天，总是忙忙碌碌，然后碌碌无为。
-</span>
-</div>
+            //change the screen
+            var flag = 0;
+            window.onresize = function ()
+            {
+                if (flag == 0)
+                {
+                    WIDTH = document.documentElement.clientWidth;
+                    HEIGHT = document.documentElement.clientHeight;
+                    if (WIDTH * HEIGHT == 0)
+                    {
+                        WIDTH = document.body.clientWidth;
+                        HEIGHT = document.body.clientWidth;
+                    }
+                    update();
+                    drawImg();
+                    var canvas = document.getElementById("canvas");
+                    canvas.width = WIDTH;
+                    canvas.height = HEIGHT;
+                    flag = 1;
+                } else {
+                    flag = 0;
+                }
+                // ... 
+            };
 
-<span class="nowTitle2">&nbsp;目前状态&nbsp;</span>
-<div class="nowContent2">
-<span class="divContent">
-目前的状态：没有计划没有目标没有理想没有信仰（四无青年啊），求大神们指导，要不毕业会不会很惨。<br />
-现在真的在女人这条路渐行渐远了，女汉子气质无处不是，女汉子还是轻的，女神经病越来越严重。怎么破？？？
-</span>
-</div>
-</div>
 
-<!-- yesterday-->
-<div id="yesterdayContent" style="display:none; width:520px">
-<span class="yesterdayTitle1">&nbsp;往事如烟&nbsp;</span>
-<div class="yesterdayContent1">
-<span class="divContent">
-请原谅我不去挽留过往，没有人会陪你到老。<br />
-有些人，在不经意间，就忘了；有些人，你想方设法，都忘不了。<br />
-</span>
-</div>
+            function mouseOut()
+            {
+                $("#showInfo").hide(10);
+             }
+            
+            var firstFlag = 0;
+            var changeFlag;
+            function listening(){
+                if(firstFlag == 0){
+                    $("#musicS").show();
+                    setTimeout("$('#musicM').show()",1000);
+                    setTimeout("$('#musicB').show()",2000);
+                }
+                var t3 = setTimeout("firstFlag = 1;",3000);
+                changeFlag = setInterval(function () {
+                    changeMusic();
+                }, 500)
+            }
+            function stopPlay(){
+                changeFlag=window.clearInterval(changeFlag);
+            }
+            
+            function changeMusic(){
+                changeSet = ["0% 0%", "0% 100%","100% 0%", "100% 100%"];
+                document.getElementById("musicB").style.backgroundPosition = document.getElementById("musicM").style.backgroundPosition;
+                document.getElementById("musicM").style.backgroundPosition = document.getElementById("musicS").style.backgroundPosition;
+                document.getElementById("musicS").style.backgroundPosition = changeSet[Math.floor(Math.random() * 3.5)];
+                document.getElementById("musicB").style.top = 65 + Math.floor(Math.random()*5);
+                document.getElementById("musicM").style.top = 50 + Math.floor(Math.random()*3);
+                document.getElementById("musicS").style.top = 70 + Math.floor(Math.random()*2);
+            }
+            
+            $(document).ready(function(){
+                //music paly 
+                var audio = document.getElementById("musicAud");
+                if (audio != null && audio.canPlayType && audio.canPlayType("audio/mp3"))
+                    {
+                        audio.src = "src/audio/bgmusic.mp3";
+                        //audio.play();
+                        audio.loop = "loop";
+                    }
+                $("#audioDiv").click(function(){
+                    if(flagMusic == 0){
+                        audio.play();
+                        flagMusic = 1;
+                        $("#showInfo").html("stop music");
+                        listening();
+                    }else{
+                        flagMusic = 0;
+                        audio.pause();
+                        $("#showInfo").html("listen music");
+                        stopPlay();
+                    }
+                    });
+                $("#audioDiv").hover(function(){
+                    $("#showInfo").show();
+                });
 
-<span class="yesterdayTitle2">&nbsp;漂泊人生&nbsp;</span>
-<div class="yesterdayContent2">
-<span class="divContent">
-一直在流浪，可能年轻的心还没有要安定下来。<br />
-我要出安徽这个海湾，不要一直在合肥游荡（PS.7年之痒痛苦的经历）<br />
-</span>
-</div>
+             });
+        </script> 
 
-<span class="yesterdayTitle3">&nbsp;一切安好？&nbsp;</span>
-<div class="yesterdayContent3">
-<span class="divContent">
-亲爱的童鞋、朋友们：<br />
-&nbsp;&nbsp;你们最近好吗？我记得你们的，不曾忘记，待我回家把小学初中毕业照各种照片翻出来晒晒年幼的我们。
-</span>
-</div>
-</div>
-
-<div id="contactContent" style="display:none; width:520px">
-<span class="contactTitle1">&nbsp;记得联系我哦&nbsp;</span>
-<div class="contactContent1">
-<span class="divContent">
-本身是一个很害羞的人啦，所以大家有神嘛事常联系我啦。<br />
-Tel：15656930230<br />
-&nbsp;QQ：1255345847<br />
-微信：hhj_3028<br />
-新浪微博：<a href="http://weibo.com/login.php">水冰轩艾蕙-July</a><br />
-</span>
-</div>
-
-<span class="contactTitle2">&nbsp;想告诉我什么&nbsp;</span>
-<div class="contactContent2" align="center">
-<form id="form1" style="margin-top:5px;" action="b.php" method="get">
-<textarea name="content" id="txt1" cols="40" rows="5" style="background-color:#AED9F9; border-radius:10px;">
-</textarea><br />
-<input type="submit" value="告诉我"  name="Submit" onclick="tellMe()"/>
-<input type="reset"  value="重新写啦" />
-</form>
-
-</div>
-</div>
-
-</body>
-</html>
+    </body>

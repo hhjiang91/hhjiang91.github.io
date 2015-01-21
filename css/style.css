@@ -1,0 +1,78 @@
+
+body {
+	background: #E9E8ED;
+}
+#audioDiv{
+    display:block;
+    margin:0px auto;
+    position: absolute;
+    left:15px;
+    top:25px;
+    z-index:1;
+    width: 140px;
+    height: 220px;
+}
+#showInfo{
+    position: absolute;
+    left:75px;
+    top:210px;
+    z-index:1;
+    background: #DFADF2;
+    display:none;
+    font-family: cursive
+}
+
+#canvas0{
+    display:block;
+    margin:0px auto;
+    position: absolute;
+    left:0px;
+    top:0px;
+    z-index:-1;
+}
+
+#canvas{
+    display:block;
+    margin:0px auto;
+    position: absolute;
+    left:0px;
+    top:0px;
+    z-index:0;
+    background: E9E8ED;
+}
+
+#musicS{
+    position: absolute;
+    top: 50px;
+    left: 145px;
+    width: 50px;
+    height: 50px;
+    background-image: url(../src/images/musicS.jpg);
+    background-position:0% 0%;
+    z-index: -1;
+    display: none
+}
+
+#musicM{
+    position: absolute;
+    top: 50px;
+    left: 210px;
+    width: 80px;
+    height: 80px;
+    background-image: url(../src/images/musicM.jpg);
+    background-position:0% 0%;
+    z-index: -1;
+    display: none
+}
+
+#musicB{
+    position: absolute;
+    top: 10px;
+    left: 300px;
+    width: 90px;
+    height: 90px;
+    background-image: url(../src/images/musicB.jpg);
+    background-position:0% 0%;
+    z-index: -1;
+    display: none
+}

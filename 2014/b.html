@@ -1,0 +1,8 @@
+<?php
+$str=$_GET[content];
+$str = $str."\n";
+$fp=fopen("b.txt","a");
+fwrite($fp,$str);//写入
+fclose($fp);
+header('Location: http://hhjiang91.sinaapp.com/');
+?>
