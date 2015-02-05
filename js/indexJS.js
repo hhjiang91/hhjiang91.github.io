@@ -227,7 +227,7 @@ window.onload = function () {
     });
     
     $("#sheep").click(function(){
-        window.location.href = "http://www.baidu.com";
+        window.location.href = "myblog.html";
     });
 
     drawImg();
