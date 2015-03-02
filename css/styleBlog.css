@@ -6,6 +6,7 @@ body {
 	font-size: 13px;
 	text-align: justify;
 	color: #5A5885;
+
 }
 
 body, th, td, input, textarea, select, option {
@@ -41,7 +42,7 @@ blockquote {
 
 blockquote p, blockquote ul, blockquote ol {
 	line-height: normal;
-	font-style: italic;
+
 }
 
 a {
@@ -107,13 +108,11 @@ hr {
 
 #content {
 	float: left;
-	width: 460px;
+	width: 500px;
 	margin: 0;
 }
 
-.post {
-	padding: 5px 0 0 0;
-}
+
 
 .title {
 	padding: 0 20px 0 0px;
@@ -125,8 +124,7 @@ hr {
 	color: #FFFFFF;
 }
 
-.pagetitle {
-}
+
 
 .byline {
 	margin: -30px 20px 0 0px;
@@ -166,31 +164,11 @@ hr {
 	float: right;
 }
 
-.posts {
-	margin-top: 10px;
-	padding: 0;
-	list-style: none;
-	line-height: normal;
-}
-
-.posts li {
-}
-
-.posts h3 {
-	margin: 0;
-	font-weight: bold;
-}
-
-.posts p {
-	margin: 0;
-	line-height: normal;
-}
-
-.posts a {
-}
 
 .entry {
 	margin: 0;
+	padding-top: 70px;
+	font-size: 20px
 }
 
 .last {
@@ -246,7 +224,7 @@ hr {
 .sunflower{
      position: absolute;
         left: 0px;
-        top:565px;
+        top:520px;
     
 }
 #footer {
@@ -261,7 +239,7 @@ hr {
 	color: #625FA1;
         position: absolute;
         left: 400px;
-        top:700px;
+        top:660px;
 }
 
 #footer p {
