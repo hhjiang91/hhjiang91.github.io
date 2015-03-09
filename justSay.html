@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "UTF-8">
+<title>use html5</title>
+</head>
+<body>
+<h1>简单的Web留言</h1>
+<textarea id="memo" cols="60" rows="10"></textarea><br>
+<input type="button" value="add" onclick="saveS('memo');">
+<input type="button" value="initial" onclick="clearS('memo');">
+<hr>
+<p id="msg"></p>
+<script type="text/javascript">
+function saveS(id){
+	var data = document.getElementById(id).value;
+	var time = new Date().getTime();
+	localStorage.setItem(time, data);
+	loadS("msg");
+}
+function loadS(id){
+	var result = '<table border="1">';
+	for (var i = localStorage.length - 1; i >= 0; i--) {
+		var key = localStorage.key(i);
+		var value = localStorage.getItem(key);
+		var date = new Date();
+		date.setTime(key);
+		var datestr = date.toGMTString();
+		result += '<tr><td>' + value + '</td><td>' + datestr + '</td></tr>';
+	};
+	result += '</table>';
+	var target = document.getElementById(id);
+	target.innerHTML = result;
+}
+
+function clearS(){
+	localStorage.clear();
+	loadS("msg");
+}
+</script>
+</body>
+</html>
