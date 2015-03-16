@@ -227,7 +227,7 @@ window.onload = function () {
     });
     
     $("#sheep").click(function(){
-        window.location.href = "myblog.html";
+        window.location.href = "testBootstrap.html";
     });
 
     drawImg();

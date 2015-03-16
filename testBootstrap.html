@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>紫梦轩</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="icon" href="src/images/favicon.ico" type="image/x-icon" sizes="32x32"/>
+	<meta name = "viewport" content="width=device-width, initial-scale = 1.0">
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<!-- [if lt IE 9]>
+		<script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<style type="text/css">
+body, .jumbotron, .list-group-item{background-color: #E5EEF7}
+body{
+	background-image: url(src/images/sunFlower.jpg);
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-position:bottom left;
+}
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+}
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -50px; /* 这个 -155px 要跟 .footer 的高度一样 */
+}
+footer, .push {
+	height: 50px; /* .push 要跟 .footer 的高度一样  */
+}
+footer{ width:100%;text-align: center;} 
+
+.picShow{
+	margin：0 auto;
+	width: 90%;	
+}
+.picshowing{
+	width: 65%;
+	height: 50%;
+	margin:0 auto;
+}
+</style>
+
+<body>
+	<div class="wrapper">
+		<nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="container">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">Just try</a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav" id = "mytab">
+		        <li class="active"><a href="#Main" data-toggle="tab">Main<span class="sr-only">(current)</span></a></li>
+		        <li><a href="#Show" data-toggle="tab">Show</a></li>
+		        <li><a href="#Me" data-toggle="tab">About Me</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		  </div>
+		</nav>
+
+		<!--right-->
+		<div class = "tab-content">
+			<div class = "container tab-pane active" id = "Main">
+				<div class="row">
+					<div class = "col-sm-9">
+						<p class="pull-right visible-xs">
+							<button class="btn-xs btn-primary"> Toggle</button>
+						</p>
+						<div class="jumbotron">
+			  				<h1>向日葵的守候</h1>
+			  				<p>卑微的向日葵爱上了高高在上的太阳神，于是她将自己的爱化为对太阳深情的凝望，日复一日，年复一年，向日葵的坚定终于换来了太阳的一次眷顾。再后来，她孕育了爱的结晶，她深深的埋下头，不再仰望。她把头埋得很低，全心全意呵护着腹中胎儿。</p>
+			  				
+						</div>
+						<div class="row">
+							<div class="col-6 col-sm-6 col-lg-3 col-lg-offset-1 ">
+								<h2>向日葵</h2>
+								<p>向日葵又名朝阳花...</p>
+								<a title="来源"  class = "btn-xs btn-info"
+	      							data-container="body" data-toggle="popover" data-placement="bottom" 
+	      							data-content="向日葵又名朝阳花，因其花常朝着太阳而得名。英语称之为sunflower却不是因为它的这一特性，因为其黄花开似太阳的缘故。16世纪～17世纪sunflower一词从拉丁语flos solis借译过来。向日葵的法语，意大利语和西班牙语名称tournesol，girasol和girasol同汉语名称一样，也是基于“向日”这一特性来命名的。">
+	      							View detail</a>
+							</div>
+							<div class="col-6 col-sm-6 col-lg-3">
+								<h2>花语</h2>
+								<p>曾有一个凄美的希...</p>
+								<a title="沉默的爱"  class = "btn-xs btn-info"
+	      							data-container="body" data-toggle="popover" data-placement="bottom" 
+	      							data-content="曾有一个凄美的希腊神话传说。克吕提厄（Clytie）是一位海洋女神。她曾是太阳神赫利俄斯（Helius）的情人，但后来赫利俄斯又爱上波斯（Persia）公主琉科托厄（Leucothoe）。妒火中烧的克吕提厄向波斯王俄耳卡摩斯（Orchamus）告发了琉科托厄与赫利俄斯的关系。俄耳卡摩斯下令将不贞的女儿活埋。赫利俄斯得知此事后，彻底断绝了与克吕提厄的来往。痴情的克吕提厄一连数天不吃不喝，凝望着赫利俄斯驾驶太阳车东升西落，日渐憔悴，最终化为一株向阳花（向日葵）。">
+	      							View detail</a>
+							</div>
+							
+							<div class="col-6 col-sm-6 col-lg-4">
+								<h2>种植</h2>
+								<p>向日葵的播种时间...</p>
+								<a title="播种时间与方法"  class = "btn-xs btn-info"
+	      							data-container="body" data-toggle="popover" data-placement="bottom" 
+	      							data-content="向日葵的播种时间：3～4月;播种的适宜温度：18～25℃
+									出芽时间：5～7天;播种方法：点播，覆土约25px，播后50～80天左右开花，因品种不同各项略有差异。不良症状">
+	      							View detail</a>
+							</div>
+						</div>
+					</div>
+					<div class = "col-sm-3">
+						<ul class="list-group">
+						  <li class="list-group-item">花农：July Jiang</li>
+						  <li class="list-group-item">花龄：2年</li>
+						  <li class="list-group-item">花粉：0个</li>
+						  <li class="list-group-item">关注：一年生草本花卉</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- tab show for the flowers-->
+			<div class = "container tab-pane " id = "Show">
+				<div class = "row">
+					<div class = "col-sm-9 col-sm-offset-1">
+						<div id="carousel-example-generic" class="carousel slide picShow" data-ride="carousel">
+
+		  					<!-- Wrapper for slides -->
+		  					<div class="carousel-inner picshowing" role="listbox">
+		    					<div class="item active">
+		      						<img src="src/sunflowers/s1.jpg" alt="this is first pic" >
+		      						<div class="carousel-caption">
+		        						<h3>第1天</h3>
+		    							<p>我要出来啦~</p>
+		      						</div>
+		    					</div>
+		    					<div class="item">
+		      						<img src="src/sunflowers/s2.jpg" alt="this is second pic">
+		      						<div class="carousel-caption">
+								        <h3>第2天</h3>
+		    							<p>看我怎么把这个壳子挣破</p>
+								    </div>
+								</div>
+								<div class="item">
+		      						<img src="src/sunflowers/s3.jpg" alt="this is second pic">
+		      						<div class="carousel-caption">
+								       <h3>第3天</h3>
+		    							<p>哇~~ 我是小叶子</p>
+								    </div>
+								</div>
+								<div class="item">
+		      						<img src="src/sunflowers/s4.jpg" alt="this is second pic">
+		      						<div class="carousel-caption">
+								        <h3>第4天</h3>
+		    							<p>听说歪脖子最可爱</p>
+								    </div>
+								</div>
+								<div class="item">
+		      						<img src="src/sunflowers/s5.jpg" alt="this is second pic">
+		      						<div class="carousel-caption">
+								        <h3>第5天</h3>
+		    							<p>我像不像亭亭玉立的美女</p>
+								    </div>
+								</div>
+								<div class="item">
+		      						<img src="src/sunflowers/s6.jpg" alt="this is second pic">
+		      						<div class="carousel-caption">
+								        <h3>第6天</h3>
+		    							<p>给你们我新的一面</p>
+								    </div>
+								</div>
+								<div class="item">
+		      						<img src="src/sunflowers/s7.jpg" alt="this is second pic">
+		      						<div class="carousel-caption">
+								        <h3>第7天</h3>
+		    							<p>这张把我照丑了， 不开心</p>
+								    </div>
+								</div>
+								<div class="item">
+		      						<img src="src/sunflowers/s8.jpg" alt="this is second pic">
+		      						<div class="carousel-caption">
+								        <h3>第8天</h3>
+		    							<p>好翠绿的叶子 羡慕吧 忙碌的人类</p>
+								    </div>
+								</div>
+		  					</div>
+
+		  					<!-- Controls -->
+		  					<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+		   					 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		    				<span class="sr-only">Previous</span>
+		  					</a>
+		  					<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+		    				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		    				<span class="sr-only">Next</span>
+		  					</a>
+						</div>
+					</div>
+					<div class = "col-sm-2">
+							<h1>相关经历</h1>
+							<h2>植物宠物：</h2>
+							<p>玫瑰，百合，向日葵，吊兰三部曲（全绿吊兰，金边吊兰，金心吊兰），蝴蝶兰，绿萝，仙人掌，鸾尾，轮峰菊，满天星，芦荟，西瓜（嘻嘻~~）</p>
+					</div>
+				</div>
+					
+			</div>
+
+			<!-- this about me-->
+	        <div class = "container tab-pane" id = "Me">
+        		<div class="jumbotron">
+						<h1>Hello, world!</h1>
+						<p>Yes, I'm a coder from USTC. </p>
+						<p><a class="btn btn-primary btn-lg" href="myBlog.html" role="button">Learn more</a></p>
+				</div>
+        	</div>
+	        </div>
+	    </div>
+	 	<div class="push"></div>
+	</div>
+
+	<footer ><p>&copy;2015 All Rights Reserved &nbsp;&nbsp; Design by Hhjiang&nbsp;&nbsp;</p></footer>
+
+
+<script type="text/javascript">
+ $(function () 
+      { $("[data-toggle='popover']").popover();
+        $('#myTab a:last').tab('show')
+      });
+</script>
+
+
+</body>
+</html>
