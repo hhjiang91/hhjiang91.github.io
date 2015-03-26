@@ -1,0 +1,245 @@
+@media screen and (min-width: 970px;) { 
+    h1 { 
+    font-size:20px;  
+    }
+    span{
+        font-size: 15px;
+    } 
+    a{
+        font-size: 8px;
+    }
+    .nav a{
+        color: black;
+        font-weight: 20px;
+    }
+} 
+@media screen and (min-width: 750px;) { 
+    h1 { 
+        font-size:15px;  
+    }
+    span{
+        font-size: 10px;
+    } 
+    a{
+        font-size: 7px;
+    }
+    .nav a{
+        color: black;
+        font-weight: 15px;
+    }
+}
+@media screen and (max-width:750px;) { 
+    h1 { 
+        font-size:10px; 
+    }
+    span{
+        font-size: 10px;
+    } 
+    a{
+        font-size: 7px;
+    }
+} 
+
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+    font-size: 20px;
+}
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -30px; /* 这个 -155px 要跟 .footer 的高度一样 */
+
+}
+
+.navbar{
+	padding-top: 20px;
+	margin-bottom: 0px;
+}
+
+
+.nav a{
+    color: black;
+    font-weight: 20px;
+}
+
+.container{
+    padding: 0 0 0 0 px;
+    margin: 0px;
+
+}
+
+
+footer, .push {
+	height: 30px; /* .push 要跟 .footer 的高度一样  */
+}
+footer{ width:100%;text-align: center;font-size: 15px;} 
+
+#description{
+    width: 100%;
+    height: 100%;
+    color: #FFF;
+    text-align: left;
+    position: relative;
+}
+
+/* for the home page, left right content*/
+.iconImgL, .iconImgR{
+    top: 50%;
+    position: absolute;
+}
+.iconImgL{
+    left: 10%;
+}
+.iconImgR{
+    right: 10%;
+}
+
+#description h2{
+    font-size: 20px;
+    text-align: left;
+    position: absolute;
+    width: 40%;
+    left: 30%;
+    top:50%;
+}
+
+#description span{
+    font-size: 15px;
+    text-align: left;
+    position: absolute;
+    width: 40%;
+    left: 30%;
+    top:60%;
+}
+
+.infoHref{
+    position: absolute;
+    left: 30%;
+    top:65%;
+    font-size: 10px;
+}
+
+.detailDiv{
+    width: 100%;
+    padding-top: 10px;
+}
+
+.detailDiv h1{
+    margin-bottom: 50px;
+    margin-top: 50px;
+    text-align: center;
+}
+.detailDiv p{
+    font-size: 15px;
+}
+
+.detailDiv img{
+    width: 90%;
+}
+
+.detailDiv .row{
+    margin-bottom: 100px;
+}
+
+
+/* for all the tabs*/
+.searchBar{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* for the recommend contend*/
+.recommendContent{
+    margin-right: 10px;
+    
+}
+.specialTol{
+    background-size:cover;
+    height: 320px;
+    padding-right: 20px;
+    margin-top: 50px;
+    margin-left: 40px;
+    margin-right: 35px;
+    padding: 0px;
+}
+.specialH,.specialC{
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2) !important; /* IE无效，FF有效 */
+    background: #000;
+    filter: alpha(opacity=30);
+    color: #FFF;
+    position:absolute;
+    left:0;
+    bottom:0;
+}
+.specialTol h1{
+    font-size: 20px;
+}
+.specialTol p{
+    font-size: 10px;
+}
+/*animation for background*/
+.a-fadein{-webkit-animation:1s ease-out backwards;-moz-animation:1s ease-out backwards;-ms-animation:1s ease-out backwards;animation:1s ease-out backwards;}
+.a-fadeoutL{-webkit-animation:1s ease-in forwards;-moz-animation:1s ease-in forwards;-ms-animation:1s ease-in forwards;animation:1s ease-in forwards;}
+.a-fadeout{-webkit-animation:0.5s ease-in forwards;-moz-animation:0.5s ease-in forwards;-ms-animation:0.5s ease-in forwards;animation:0.5s ease-in forwards;}
+.a-fadein{-webkit-animation-name:fadein;-moz-animation-name:fadein;-ms-animation-name:fadein;animation-name:fadein;}
+.a-fadeoutL{-webkit-animation-name:fadeoutL;-moz-animation-name:fadeoutL;-ms-animation-name:fadeoutL;animation-name:fadeoutL;}
+.a-fadeout{-webkit-animation-name:fadeout;-moz-animation-name:fadeout;-ms-animation-name:fadeout;animation-name:fadeout;}
+@-webkit-keyframes fadein{
+    0%{opacity:0;}
+    100%{opacity:1;}
+}
+@-moz-keyframes fadein{
+    0%{opacity:0;}
+    100%{opacity:1;}
+}
+@-ms-keyframes fadein{
+    0%{opacity:0;}
+    100%{opacity:1;}
+}
+@keyframes fadein{
+    0%{opacity:0;}
+    100%{opacity:1;}
+}
+/* 淡出-向左 */
+@-webkit-keyframes fadeoutL{
+    0%{opacity:1;-webkit-transform:translateX(0);}
+    100%{opacity:0;-webkit-transform:translateX(-100px);}
+}
+@-moz-keyframes fadeoutL{
+    0%{opacity:1;-moz-transform:translateX(0);}
+    100%{opacity:0;-moz-transform:translateX(-100px);}
+}
+@-ms-keyframes fadeoutL{
+    0%{opacity:1;-ms-transform:translateX(0);}
+    100%{opacity:0;-ms-transform:translateX(-100px);}
+}
+@keyframes fadeoutL{
+    0%{opacity:1;transform:translateX(0);}
+    100%{opacity:0;transform:translateX(-100px);}
+}
+
+/* 淡出*/
+@-webkit-keyframes fadeout{
+    0%{opacity:1;}
+    100%{opacity:0;}
+}
+@-moz-keyframes fadeout{
+    0%{opacity:1;}
+    100%{opacity:0;}
+}
+@-ms-keyframes fadeout{
+    0%{opacity:1;}
+    100%{opacity:0;}
+}
+@keyframes fadeout{
+   0%{opacity:1;}
+    100%{opacity:0;}
+}
