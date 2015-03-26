@@ -35,6 +35,17 @@ $(function () {
     $("[data-toggle='popover']").popover();
 	$('#myTab a:last').tab('show')
 
+    //navbar-header + -
+    $('.navbar-header button').click(function(){
+        if($(this).children('.glyphicon').hasClass('glyphicon-plus')){
+            $(this).children('.glyphicon').removeClass("glyphicon-plus");
+            $(this).children('.glyphicon').addClass('glyphicon-minus');
+        }else{
+            $(this).children('.glyphicon').removeClass("glyphicon-minus");
+            $(this).children('.glyphicon').addClass('glyphicon-plus');
+        }
+    });
+
     //this is for img record 
      numRec = 1;
      //showBit if 1 the clock is work, 0 is not

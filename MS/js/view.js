@@ -28,9 +28,9 @@ function changeIMG(){
     if (numRec>IMGNUM) {numRec=1;};
     var nextImg = document.getElementById("myCanvas"+numRec);
     nextImg.className = 'a-fadein';
-    $('#description').children('h2').text(DESC[numRec*3 - 3]);
-    $('#description').children('span').text(DESC[numRec*3-2]);
-    $('#description').children('.infoHref')[0].href = DESC[numRec*3 - 1];
+    $('.descriptionCont').children('h2').text(DESC[numRec*3 - 3]);
+    $('.descriptionCont').children('span').text(DESC[numRec*3-2]);
+    $('.descriptionCont').children('.infoHref')[0].href = DESC[numRec*3 - 1];
   }
 }
 
