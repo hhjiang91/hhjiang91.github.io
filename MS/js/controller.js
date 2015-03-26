@@ -83,6 +83,7 @@ $(function () {
 
 
     //for the recommend page
+    // for the pictures showing
     $(".specialH").hover(
           function () {
             $(this).css('display','none').fadeOut(1000);
@@ -101,5 +102,7 @@ $(function () {
             $(this).siblings('.specialH').css('display','block').fadeIn(1000);
           }
         );
+    //for load more pictures
+    $(".recomLoad a").on('click', loadMore);
 
 });

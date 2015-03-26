@@ -157,10 +157,8 @@ footer{ width:100%;text-align: center;font-size: 15px;}
 .specialTol{
     background-size:cover;
     height: 320px;
-    padding-right: 20px;
+    margin-right: 40px;
     margin-top: 50px;
-    margin-left: 40px;
-    margin-right: 35px;
     padding: 0px;
 }
 .specialH,.specialC{
@@ -179,6 +177,14 @@ footer{ width:100%;text-align: center;font-size: 15px;}
 .specialTol p{
     font-size: 10px;
 }
+/*for the load of more recommend*/
+.recomLoad{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #000;
+}
+
 /*animation for background*/
 .a-fadein{-webkit-animation:1s ease-out backwards;-moz-animation:1s ease-out backwards;-ms-animation:1s ease-out backwards;animation:1s ease-out backwards;}
 .a-fadeoutL{-webkit-animation:1s ease-in forwards;-moz-animation:1s ease-in forwards;-ms-animation:1s ease-in forwards;animation:1s ease-in forwards;}
