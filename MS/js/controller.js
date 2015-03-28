@@ -54,6 +54,7 @@ $(function () {
     for (var i = IMGNUM; i >= 1; i--) {
         drawimage(i);
     };
+    drawimage(4);
     changeIMG();
     imgClock = self.setInterval(function () {
         changeIMG();
@@ -72,7 +73,8 @@ $(function () {
         for (var i = IMGNUM; i >= 1; i--) {
             drawimage(i);
         };
-    };
+        drawimage(4);
+    }; 
 
 
     //bind the event for left and right 

@@ -14,6 +14,7 @@ function drawimage(imgIndex){
 	var mycanvas = document.getElementById("myCanvas"+imgIndex);
 	mycanvas.width = WIDTH;
     mycanvas.height = HEIGHT*0.85;
+    console.log(imgIndex);
 }
 
 
