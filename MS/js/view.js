@@ -78,14 +78,30 @@ function stopImg(){
 }
 
 //for the recount of information page
+var firstTime = 0;
+function setClock(){
+    $(".playPic").children('span').text('还有'+setTime+'秒就给您播放美国购房小指南');
+    if(firstTime === 0){
+        console.log(firstTime);
+         timer = setInterval(CountDown,1000);  
+        firstTime = 1;
+    }
+}
 var setTime = 10;//10s
-function CountDown()
-{
+function CountDown(){
     console.log(setTime);
     if(setTime>0){
         setTime--;
     }else{
-        clearInterval(timer);   
+        clearInterval(timer);
+        $('.playPic')[0].style.display="none";
+        openInfo();
     }
-    $(".playPic").children('label').text(setTime);
+    $(".playPic").children('span').text('还有'+setTime+'秒就给您播放美国购房小指南');
 }
+
+function openInfo(){
+    window.open("http://www.w3school.com.cn","_blank","toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=400, height=400")
+}
+
+

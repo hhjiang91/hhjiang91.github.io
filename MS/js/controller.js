@@ -109,5 +109,6 @@ $(function () {
 
 
     //clock for the information page
-    timer = setInterval("CountDown()",1000);   
+    $('.infoNav').on('click', setClock); 
+
 });
