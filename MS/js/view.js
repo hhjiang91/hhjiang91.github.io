@@ -14,7 +14,6 @@ function drawimage(imgIndex){
 	var mycanvas = document.getElementById("myCanvas"+imgIndex);
 	mycanvas.width = WIDTH;
     mycanvas.height = HEIGHT*0.85;
-    console.log(imgIndex);
 }
 
 
@@ -76,5 +75,17 @@ function reloadImg(){
 //for login
 function stopImg(){
     showBit = 0;
-    console.log(showBit);
+}
+
+//for the recount of information page
+var setTime = 10;//10s
+function CountDown()
+{
+    console.log(setTime);
+    if(setTime>0){
+        setTime--;
+    }else{
+        clearInterval(timer);   
+    }
+    $(".playPic").children('label').text(setTime);
 }

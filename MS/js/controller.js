@@ -107,4 +107,7 @@ $(function () {
     //for load more pictures
     $(".recomLoad a").on('click', loadMore);
 
+
+    //clock for the information page
+    timer = setInterval("CountDown()",1000);   
 });

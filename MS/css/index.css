@@ -240,6 +240,11 @@ footer{ width:100%;text-align: center;font-size: 15px;}
     position: absolute;
 }
 
+/*infomation page*/
+.playPic{
+    text-align: center;
+}
+
 
 /*animation for background*/
 .a-fadein{-webkit-animation:1s ease-out backwards;-moz-animation:1s ease-out backwards;-ms-animation:1s ease-out backwards;animation:1s ease-out backwards;}
