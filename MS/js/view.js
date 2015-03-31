@@ -93,15 +93,22 @@ function CountDown(){
     if(setTime>1){
         setTime--;
     }else{
-        clearInterval(timer);
-        $('.playPic')[0].style.display="none";
         openInfo();
     }
     $(".playPic").children('span').text('还有'+setTime+'秒就给您播放美国购房小指南');
 }
 
 function openInfo(){
-    
+    clearInterval(timer);
+    $('.playPic')[0].style.display="none";
+    $('.infoCont')[0].style.display="none";
+    $('.infoPlay')[0].style.display="block";
 }
 
+function closeInfo(){
+    clearInterval(timer);
+    $('.playPic')[0].style.display="none";
+    $('.infoCont')[0].style.display="block";
+    $('.infoPlay')[0].style.display="none";
+}
 

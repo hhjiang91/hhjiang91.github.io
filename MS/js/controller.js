@@ -107,8 +107,9 @@ $(function () {
     //for load more pictures
     $(".recomLoad a").on('click', loadMore);
 
-
     //clock for the information page
     $('.infoNav').on('click', setClock); 
-
+    $('.playPic .btn-primary').on('click', openInfo);
+    $('.playPic .btn-default').on('click', closeInfo);
+    $('.infoPlay span').on('click', closeInfo);
 });
