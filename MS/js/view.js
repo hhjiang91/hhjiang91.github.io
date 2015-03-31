@@ -90,7 +90,7 @@ function setClock(){
 var setTime = 10;//10s
 function CountDown(){
     console.log(setTime);
-    if(setTime>0){
+    if(setTime>1){
         setTime--;
     }else{
         clearInterval(timer);
@@ -101,7 +101,7 @@ function CountDown(){
 }
 
 function openInfo(){
-    window.open("http://www.w3school.com.cn","_blank","toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=400, height=400")
+    
 }
 
 
