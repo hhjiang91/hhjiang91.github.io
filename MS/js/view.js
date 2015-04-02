@@ -87,21 +87,29 @@ function setClock(){
         firstTime = 1;
     }
 }
-var setTime = 10;//10s
+var setTime = 11;//10s
 function CountDown(){
+    $(".playPic")[0].style.display = 'block';
     console.log(setTime);
-    if(setTime>0){
+    if(setTime>1){
         setTime--;
     }else{
-        clearInterval(timer);
-        $('.playPic')[0].style.display="none";
         openInfo();
     }
     $(".playPic").children('span').text('还有'+setTime+'秒就给您播放美国购房小指南');
 }
 
 function openInfo(){
-    window.open("http://www.w3school.com.cn","_blank","toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=400, height=400")
+    clearInterval(timer);
+    $('.playPic')[0].style.display="none";
+    $('.infoCont')[0].style.display="none";
+    $('.infoPlay')[0].style.display="block";
 }
 
+function closeInfo(){
+    clearInterval(timer);
+    $('.playPic')[0].style.display="none";
+    $('.infoCont')[0].style.display="block";
+    $('.infoPlay')[0].style.display="none";
+}
 

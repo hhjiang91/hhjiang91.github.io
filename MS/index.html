@@ -9,7 +9,7 @@
 	<meta name = "viewport" content="width=device-width, initial-scale = 1.0">
 	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
-	<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+	<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 	<script src="js/controller.js"></script>
 	<script src="js/view.js"></script>
 	<script src="js/model.js"></script>
@@ -19,6 +19,12 @@
 	<![endif]-->
 </head>
 <body>
+<!--this is the controller for play pic-->
+<div class="playPic">
+	<span></span>
+	<button  class="btn btn-primary btn-sm ">播放</button>
+	<button  class="btn btn-default btn-sm ">跳过</button>
+</div>	
 <div class="wrapper" id="wrapper" >
 	<!-- navbar -->
 	<nav class="navbar ">
@@ -29,17 +35,17 @@
 	      	<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 	        <span class="sr-only" >Toggle navigation</span>
 	      </button>
-	      <a href="#home" class = "active" data-toggle="tab"><img alt="Brand" src="src/img/favicon.ico"></a>
+	      <a href="#home" class = "active homeNav" data-toggle="tab"><img alt="Brand" src="src/img/favicon.ico"></a>
 	    </div>
 
 	    <div class="collapse navbar-collapse" id="tabSet">
 	    	<!-- this is our menu bar-->
 	      <ul class="nav navbar-nav " id="mytab">
-	        <li><a href="#recommend" data-toggle="tab">精品推荐</a></li>
-	        <li><a href="#search" data-toggle="tab">住宅搜索</a></li>
+	        <li><a href="#recommend" data-toggle="tab" class='recoNav'>精品推荐</a></li>
+	        <li><a href="#search" data-toggle="tab" class='serchNav'>住宅搜索</a></li>
 	        <li><a href="#information" data-toggle="tab" class='infoNav'>购房指南</a></li>
-	        <li><a href="#news" data-toggle="tab">最新资讯</a></li>
-	        <li><a href="#about" data-toggle="tab">关于我们</a></li>
+	        <li><a href="#news" data-toggle="tab" class='newNav'>最新资讯</a></li>
+	        <li><a href="#about" data-toggle="tab" class='usNav'>关于我们</a></li>
 	      </ul>
 	      <!-- this for the user login in or install as new one-->
 	      	<form class="navbar-form navbar-right" role="login">
@@ -208,9 +214,12 @@
 			</div>
 			<div >
 				<div class="row">
-					<div class="col-lg-3 col-md-2 col-xs-2">
+					<div>
+						<div></div>
 					</div>
-					<div class="col-lg-6 col-md-8 col-xs-8 ">
+					<div class="col-lg-3 col-md-3 col-xs-2">
+					</div>
+					<div class="col-lg-6 col-md-6 col-xs-8 ">
 						<div class="searchContent">
 							<div class ="searchTitle" ><span>美顺给您查找房子</span></div>
 							<div class="searchBar">
@@ -225,8 +234,9 @@
 									</div>
 								</div><!-- /.row -->
 								<div class="row chooseBar" >
+									<div class="col-lg-1 col-md-0 col-xs-0"></div>
 									<div class="col-lg-4 col-md-8 col-xs-8 col-lg-offset-0 col-xs-offset-1">
-										<label>价格</label>
+										<label>价格范围</label>
 										  <select>
 										  	<option value="0">不限</option>
 										    <option value="1">1000</option>
@@ -244,7 +254,7 @@
 										  </select>
 									</div>
 									<div class="col-lg-3 col-md-8 col-xs-8 col-lg-offset-0 col-xs-offset-1">
-										<label>户型</label>
+										<label>房屋类型</label>
 										  <select>
 										  	<option value="0">不限</option>
 										    <option value="1">2室1厅</option>
@@ -253,8 +263,8 @@
 										    <option value="4">2室1厅</option>
 										  </select>
 									 </div>
-									<div class="col-lg-5 col-md-8 col-xs-8 col-lg-offset-0 col-xs-offset-1">
-										<label>市中心</label>
+									<div class="col-lg-4 col-md-8 col-xs-8 col-lg-offset-0 col-xs-offset-1">
+										<label>距市中心</label>
 										  <select>
 										  	<option value="0">不限</option>
 										    <option value="1">1公里</option>
@@ -275,7 +285,7 @@
 							 </div>	
 						</div>
 					</div>
-					<div class="col-lg-3 col-md-2 col-xs-2">
+					<div class="col-lg-3 col-md-3 col-xs-2">
 					</div>
 				</div>
 			</div>
@@ -287,21 +297,104 @@
 				<div class="col-lg-1 col-md-1 col-xs-1">
 				</div>
 				<div class="col-lg-10 col-md-10 col-xs-10 ">
-					<div class="playPic">
-						<span></span>
-						<button  class="btn btn-primary btn-sm ">播放</button>
-					    <button  class="btn btn-default btn-sm ">跳过</button>
-					</div>	
-					<div class ="row">
-						<div class="col-lg-9 col-md-9 col-xs-10">
-								<h3>美国房地产相关法规</h3>
-								<h3>各地购房指南</h3>
-								<h3>他人经验</h3>
+					<!--show the articals-->
+					<div class ="row infoCont">
+						<div class="col-lg-1 col-md-1 col-xs-0">
 						</div>
-						<div class="col-lg-3 col-md-3 col-xs-10">
-								<h3>阅读排行榜</h3>
+						<div class="col-lg-6 col-md-7 col-xs-10 mainInfo">
+							<div class='row'>
+								<div class="col-lg-12 col-md-12 col-xs-12 artical_title">
+									<h3>美国房地产法规</h3>							
+								</div>
+								<div class="col-md-7 row list-title"><a href="http://www.baidu.com">美国房产税</a> </div>
+								<div class="col-md-5 detail_right txtright phoneimghide">
+	                                    <span class="gray12px">浏览: 497&nbsp;&nbsp;</span>
+	                                    <span class="gray12px">时间: 12/26/2014 4:58:14&nbsp;&nbsp;</span>
+                                </div>
+								<div class='col-md-12'>
+									<div class="list-articledetail">
+                                        <a class="topic-articlemore" href="http://www.baidu.com">美国对房产的收税主要是交易税和的房产税。交易税一次性过户时交齐，约为房价的2-4%，一般由买卖双方平分。房产税是一个财产税，每年都要交。数量是房产估价乘以一个税率。这个税率大约是0.8-3%...</a>
+                                    </div>
+								</div>
+							</div>
+							<div  class='row'>
+								<div class="col-lg-12 col-md-12 col-xs-12 artical_title">
+								     <h3>各地购房指南</h3>							
+								</div>
+								<div class="col-md-7 row list-title"><a href="http://www.baidu.com">美国房产税</a> </div>
+								<div class="col-md-5 detail_right txtright phoneimghide">
+	                                    <span class="gray12px">浏览: 497&nbsp;&nbsp;</span>
+	                                    <span class="gray12px">时间: 12/26/2014 4:58:14&nbsp;&nbsp;</span>
+                                </div>
+								<div class='col-md-12'>
+									<div class="list-articledetail">
+                                        <a class="topic-articlemore" href="http://www.baidu.com">美国对房产的收税主要是交易税和的房产税。交易税一次性过户时交齐，约为房价的2-4%，一般由买卖双方平分。房产税是一个财产税，每年都要交。数量是房产估价乘以一个税率。这个税率大约是0.8-3%...</a>
+                                    </div>
+								</div>
+							</div>
+							<div  class='row'>
+								<div class="col-lg-12 col-md-12 col-xs-12 artical_title">
+									<h3>他人经验</h3>						
+								</div>
+								<div class="col-md-7 row list-title"><a href="http://www.baidu.com">美国房产税</a> </div>
+								<div class="col-md-5 detail_right txtright phoneimghide">
+	                                    <span class="gray12px">浏览: 497&nbsp;&nbsp;</span>
+	                                    <span class="gray12px">时间: 12/26/2014 4:58:14&nbsp;&nbsp;</span>
+                                </div>
+								<div class='col-md-12'>
+									<div class="list-articledetail">
+                                        <a class="topic-articlemore" href="http://www.baidu.com">美国对房产的收税主要是交易税和的房产税。交易税一次性过户时交齐，约为房价的2-4%，一般由买卖双方平分。房产税是一个财产税，每年都要交。数量是房产估价乘以一个税率。这个税率大约是0.8-3%...</a>
+                                    </div>
+								</div>
+							</div>
+						</div>
+
+						<!--show the sidebar for the aricals-->
+						<div class="col-lg-4 col-md-7 col-xs-10">
+							<div class = 'rows sideBar'>
+								<div class='col-lg-12 col-md-12 col-xs-12  sideBar-title'><h3>阅读排行榜</h3></div>
+								<div class='col-lg-12 col-md-12 col-xs-12 sideBar-listPaper'>
+									<div class="col-md-12 row">
+										<ol>
+											<li><a href="http://www.baidu.com">美国房产税</a></li>
+											<li><a href="http://www.baidu.com">美国房产税</a></li>
+											<li><a href="http://www.baidu.com">美国房产税</a></li>
+										</ol>
+									</div>
+								</div>
+								<div class='col-lg-12 col-md-12 col-xs-12  sideBar-title'><h3>房产经纪人推荐</h3></div>
+								<div class='col-lg-12 col-md-12 col-xs-12 sideBar-listAgency'>
+									<div class='col-lg-5 col-md-5 col-xs-12'>
+										<img src="src/img/agency/1.jpg">
+										<span>Jack</span>
+									</div>
+									<div class='col-lg-5 col-md-5 col-xs-12 col-lg-offset-1 col-md-offset-1 col-xs-offset-0'>
+										<img src="src/img/agency/1.jpg">
+										<span>July</span>
+									</div>
+									<div class='col-lg-6 col-md-6 col-sm-12 col-xs-12'></div>
+									<div class='col-lg-6 col-md-6 col-sm-12 col-xs-12'></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-0 col-xs-0">
 						</div>
 					</div>
+
+					<!--this is a simple expalin for buyer-->
+					<div class ="row infoPlay" style="display:none">
+						<div class="col-lg-2 col-md-2 col-xs-1">
+						</div>
+						<div class="col-lg-8 col-md-8 col-xs-10">
+							    <span class = 'glyphicon glyphicon-hand-left' aria-hidden="true"></span><label style="display:none;">返回上一页</label><br/>
+								<img src="src/img/3.jpg" >
+								<br>
+								这里需要一个类似于漫画简洁易懂的介绍美国买房流程，注意事项
+						</div>
+						<div class="col-lg-2 col-md-2 col-xs-1">
+						</div>
+					</div>
+
 				</div>
 				<div class="col-lg-1 col-md-1 col-xs-1">
 				</div>
@@ -309,12 +402,103 @@
 		 </div>	
 
 		 <!--the news about the house in USA-->
-		<div class = "container tab-pane" id = "news">
+		<div class = "tab-pane" id = "news">
 			<div class="row">
 				<div class="col-lg-1 col-md-1 col-xs-1">
 				</div>
 				<div class="col-lg-10 col-md-10 col-xs-10 ">
-					hrljvgrigbrfn
+					<!--show the news-->
+					<div class ="row infoCont">
+						<div class="col-lg-1 col-md-1 col-xs-0">
+						</div>
+						<div class="col-lg-6 col-md-7 col-xs-10 mainInfo">
+							<div class='row'>
+								<div class="col-lg-12 col-md-12 col-xs-12 artical_title">
+									<h3>美国房产新闻</h3>							
+								</div>
+								<div class="col-md-7 row list-title"><a href="http://www.baidu.com">美国房产税</a> </div>
+								<div class="col-md-5 detail_right txtright phoneimghide">
+	                                    <span class="gray12px">浏览: 497&nbsp;&nbsp;</span>
+	                                    <span class="gray12px">时间: 12/26/2014 4:58:14&nbsp;&nbsp;</span>
+                                </div>
+								<div class='col-md-12'>
+									<div class="list-articledetail">
+                                        <a class="topic-articlemore" href="http://www.baidu.com">美国对房产的收税主要是交易税和的房产税。交易税一次性过户时交齐，约为房价的2-4%，一般由买卖双方平分。房产税是一个财产税，每年都要交。数量是房产估价乘以一个税率。这个税率大约是0.8-3%...</a>
+                                    </div>
+								</div>
+							</div>
+							<div  class='row'>
+								<div class="col-lg-12 col-md-12 col-xs-12 artical_title">
+								     <h3>南加州新闻特编</h3>							
+								</div>
+								<div class="col-md-7 row list-title"><a href="http://www.baidu.com">美国房产税</a> </div>
+								<div class="col-md-5 detail_right txtright phoneimghide">
+	                                    <span class="gray12px">浏览: 497&nbsp;&nbsp;</span>
+	                                    <span class="gray12px">时间: 12/26/2014 4:58:14&nbsp;&nbsp;</span>
+                                </div>
+								<div class='col-md-12'>
+									<div class="list-articledetail">
+                                        <a class="topic-articlemore" href="http://www.baidu.com">美国对房产的收税主要是交易税和的房产税。交易税一次性过户时交齐，约为房价的2-4%，一般由买卖双方平分。房产税是一个财产税，每年都要交。数量是房产估价乘以一个税率。这个税率大约是0.8-3%...</a>
+                                    </div>
+								</div>
+							</div>
+							<div  class='row'>
+								<div class="col-lg-12 col-md-12 col-xs-12 artical_title">
+									<h3>微刊小房产</h3>						
+								</div>
+								<div class="col-md-7 row list-title"><a href="http://www.baidu.com">美国房产税</a> </div>
+								<div class="col-md-5 detail_right txtright phoneimghide">
+	                                    <span class="gray12px">浏览: 497&nbsp;&nbsp;</span>
+	                                    <span class="gray12px">时间: 12/26/2014 4:58:14&nbsp;&nbsp;</span>
+                                </div>
+								<div class='col-md-12'>
+									<div class="list-articledetail">
+                                        <a class="topic-articlemore" href="http://www.baidu.com">美国对房产的收税主要是交易税和的房产税。交易税一次性过户时交齐，约为房价的2-4%，一般由买卖双方平分。房产税是一个财产税，每年都要交。数量是房产估价乘以一个税率。这个税率大约是0.8-3%...</a>
+                                    </div>
+								</div>
+							</div>
+						</div>
+
+						<!--show the sidebar for the aricals-->
+						<div class="col-lg-4 col-md-7 col-xs-10">
+							<div class = 'rows sideBar'>
+								<div class='col-lg-12 col-md-12 col-xs-12  sideBar-title'><h3>热门新闻</h3></div>
+								<div class='col-lg-12 col-md-12 col-xs-12 sideBar-listPaper'>
+									<div class="col-md-12 row">
+										<ol>
+											<li><a href="http://www.baidu.com">加州房价下降</a></li>
+											<li><a href="http://www.baidu.com">中国签证10年</a></li>
+											<li><a href="http://www.baidu.com">奥巴马连任</a></li>
+										</ol>
+									</div>
+								</div>
+								<div class='col-lg-12 col-md-12 col-xs-12  sideBar-title'><h3>新闻链接</h3></div>
+								<div class='col-lg-12 col-md-12 col-xs-12 sideBar-listAgency'>
+									<ol>
+										<li><a href="http://www.baidu.com">加州新闻</a></li>
+										<li><a href="http://www.baidu.com">国际新闻</a></li>
+										<li><a href="http://www.baidu.com">证券信息</a></li>
+									</ol>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-1 col-xs-0">
+						</div>
+					</div>
+
+					<!--this is a simple expalin for buyer-->
+					<div class ="row infoPlay" style="display:none">
+						<div class="col-lg-2 col-md-2 col-xs-1">
+						</div>
+						<div class="col-lg-8 col-md-8 col-xs-10">
+							    <span class = 'glyphicon glyphicon-hand-left' aria-hidden="true"></span><label style="display:none;">返回上一页</label><br/>
+								<img src="src/img/3.jpg" >
+								<br>
+								这里需要一个类似于漫画简洁易懂的介绍美国买房流程，注意事项
+						</div>
+						<div class="col-lg-2 col-md-2 col-xs-1">
+						</div>
+					</div>
 				</div>
 				<div class="col-lg-1 col-md-1 col-xs-1">
 				</div>
@@ -322,20 +506,45 @@
 		 </div>	
 
 		 <!--contact us-->
-		<div class = "container tab-pane" id = "about">
+		<div class = "tab-pane" id = "about">
 			<div class="row">
 				<div class="col-lg-1 col-md-1 col-xs-1">
 				</div>
 				<div class="col-lg-10 col-md-10 col-xs-10 ">
-					hrljvgrigbrfn
-					<div class ="row">
-						<div class="col-lg-8 col-md-8 col-xs-10">
-								helo
+					<div data-spy="scroll" data-target="#myScrollspy">
+						    <div class="row">
+						        <div class="col-xs-2" id="myScrollspy">
+						            <ul class="nav nav-tabs nav-stacked" id="myNav">
+						                <li class="active"><a href="#section-1">公司介绍</a></li>
+						                <li><a href="#section-2">常见问题</a></li>
+						                <li><a href="#section-3">联系我们</a></li>
+						                <li><a href="#section-4">给买房者</a></li>
+						                <li><a href="#section-5">相关问题解答</a></li>
+						            </ul>
+						        </div>
+						        <div class="col-xs-9 col-xs-offset-1">
+						            <h2 id="section-1">公司介绍</h2>
+						            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Vestibulum id metus ac nisl bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet sagittis. In tincidunt orci sit amet elementum vestibulum. Vivamus fermentum in arcu in aliquam. Quisque aliquam porta odio in fringilla. Vivamus nisl leo, blandit at bibendum eu, tristique eget risus. Integer aliquet quam ut elit suscipit, id interdum neque porttitor. Integer faucibus ligula.</p>
+						            <hr>
+						            <h2 id="section-2">常见问题</h2>
+						            <p>Nullam hendrerit justo non leo aliquet imperdiet. Etiam in sagittis lectus. Suspendisse ultrices placerat accumsan. Mauris quis dapibus orci. In dapibus velit blandit pharetra tincidunt. Quisque non sapien nec lacus condimentum facilisis ut iaculis enim. Sed viverra interdum bibendum. Donec ac sollicitudin dolor. Sed fringilla vitae lacus at rutrum. Phasellus congue vestibulum ligula sed consequat.</p>
+						            <hr>
+						            <h2 id="section-3">联系我们</h2>
+						            <p>Integer pulvinar leo id risus pellentesque vestibulum. Sed diam libero, sodales eget sapien vel, porttitor bibendum enim. Donec sed nibh vitae lorem porttitor blandit in nec ante. Pellentesque vitae metus ipsum. Phasellus sed nunc ac sem malesuada condimentum. Etiam in aliquam lectus. Nam vel sapien diam. Donec pharetra id arcu eget blandit. Proin imperdiet mattis augue in porttitor. Quisque tempus enim id lobortis feugiat. Suspendisse tincidunt risus quis dolor fringilla blandit. Ut sed sapien at purus lacinia porttitor. Nullam iaculis, felis a pretium ornare, dolor nisl semper tortor, vel sagittis lacus est consequat eros. Sed id pretium nisl. Curabitur dolor nisl, laoreet vitae aliquam id, tincidunt sit amet mauris.</p>
+						            <p>Suspendisse a orci facilisis, dignissim tortor vitae, ultrices mi. Vestibulum a iaculis lacus. Phasellus vitae convallis ligula, nec volutpat tellus. Vivamus scelerisque mollis nisl, nec vehicula elit egestas a. Sed luctus metus id mi gravida, faucibus convallis neque pretium. Maecenas quis sapien ut leo fringilla tempor vitae sit amet leo. Donec imperdiet tempus placerat. Pellentesque pulvinar ultrices nunc sed ultrices. Morbi vel mi pretium, fermentum lacus et, viverra tellus. Phasellus sodales libero nec dui convallis, sit amet fermentum sapien auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed eu elementum nibh, quis varius libero.</p>
+						            <p>Suspendisse a orci facilisis, dignissim tortor vitae, ultrices mi. Vestibulum a iaculis lacus. Phasellus vitae convallis ligula, nec volutpat tellus. Vivamus scelerisque mollis nisl, nec vehicula elit egestas a. Sed luctus metus id mi gravida, faucibus convallis neque pretium. Maecenas quis sapien ut leo fringilla tempor vitae sit amet leo. Donec imperdiet tempus placerat. Pellentesque pulvinar ultrices nunc sed ultrices. Morbi vel mi pretium, fermentum lacus et, viverra tellus. Phasellus sodales libero nec dui convallis, sit amet fermentum sapien auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed eu elementum nibh, quis varius libero.</p>
+						            <hr>
+						            <h2 id="section-4">给买房者</h2>
+						            <p>Suspendisse a orci facilisis, dignissim tortor vitae, ultrices mi. Vestibulum a iaculis lacus. Phasellus vitae convallis ligula, nec volutpat tellus. Vivamus scelerisque mollis nisl, nec vehicula elit egestas a. Sed luctus metus id mi gravida, faucibus convallis neque pretium. Maecenas quis sapien ut leo fringilla tempor vitae sit amet leo. Donec imperdiet tempus placerat. Pellentesque pulvinar ultrices nunc sed ultrices. Morbi vel mi pretium, fermentum lacus et, viverra tellus. Phasellus sodales libero nec dui convallis, sit amet fermentum sapien auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed eu elementum nibh, quis varius libero.</p>
+						            <p>Suspendisse a orci facilisis, dignissim tortor vitae, ultrices mi. Vestibulum a iaculis lacus. Phasellus vitae convallis ligula, nec volutpat tellus. Vivamus scelerisque mollis nisl, nec vehicula elit egestas a. Sed luctus metus id mi gravida, faucibus convallis neque pretium. Maecenas quis sapien ut leo fringilla tempor vitae sit amet leo. Donec imperdiet tempus placerat. Pellentesque pulvinar ultrices nunc sed ultrices. Morbi vel mi pretium, fermentum lacus et, viverra tellus. Phasellus sodales libero nec dui convallis, sit amet fermentum sapien auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed eu elementum nibh, quis varius libero.</p>
+						            <p>Suspendisse a orci facilisis, dignissim tortor vitae, ultrices mi. Vestibulum a iaculis lacus. Phasellus vitae convallis ligula, nec volutpat tellus. Vivamus scelerisque mollis nisl, nec vehicula elit egestas a. Sed luctus metus id mi gravida, faucibus convallis neque pretium. Maecenas quis sapien ut leo fringilla tempor vitae sit amet leo. Donec imperdiet tempus placerat. Pellentesque pulvinar ultrices nunc sed ultrices. Morbi vel mi pretium, fermentum lacus et, viverra tellus. Phasellus sodales libero nec dui convallis, sit amet fermentum sapien auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed eu elementum nibh, quis varius libero.</p>
+						            <hr>
+						            <h2 id="section-5">相关问题解答</h2>
+						            <p>Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.</p>
+						        </div>
+				
 						</div>
-						<div class="col-lg-3 col-md-3 col-xs-10">
-								helo
 						</div>
-					</div>
 				</div>
 				<div class="col-lg-1 col-md-1 col-xs-1">
 				</div>

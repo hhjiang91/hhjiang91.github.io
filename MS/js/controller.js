@@ -107,8 +107,25 @@ $(function () {
     //for load more pictures
     $(".recomLoad a").on('click', loadMore);
 
-
     //clock for the information page
     $('.infoNav').on('click', setClock); 
+    $('.playPic .btn-primary').on('click', openInfo);
+    $('.playPic .btn-default').on('click', closeInfo);
+    $('.infoPlay span').on('click', closeInfo)
+    $('.infoPlay span').on('click', closeInfo);
+    $('.infoPlay span').hover(
+          function () {
+            $(this).siblings('label').css('display','inline').fadeIn(100);
+          },
+          function () {
+            $(this).siblings('label').css('display','none').fadeOut(100);
+          }
+        );
 
+    // for the contact page 
+     $("#myNav").affix({
+        offset: { 
+            top: 125 
+        }
+    });
 });
