@@ -111,7 +111,6 @@ $(function () {
     $('.infoNav').on('click', setClock); 
     $('.playPic .btn-primary').on('click', openInfo);
     $('.playPic .btn-default').on('click', closeInfo);
-<<<<<<< HEAD
     $('.infoPlay span').on('click', closeInfo)
     $('.infoPlay span').on('click', closeInfo);
     $('.infoPlay span').hover(
@@ -129,7 +128,4 @@ $(function () {
             top: 125 
         }
     });
-=======
-    $('.infoPlay span').on('click', closeInfo);
->>>>>>> origin/master
 });
